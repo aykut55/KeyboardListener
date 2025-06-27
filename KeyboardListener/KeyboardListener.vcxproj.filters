@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\KeyboardListener.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\CompositeLogger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ConsoleLogger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FileLogger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ILogger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardListener.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyEvent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyHistory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{20aba74a-4077-4fca-9dc6-b42903d2a4f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
