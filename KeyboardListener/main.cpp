@@ -118,15 +118,13 @@ int main2()
 
     listener->Start();
 
-    Aircraft aircraft;
+    CAircraft aircraft;
 
     auto lastPrint = std::chrono::steady_clock::now();
 
     while (listener->IsRunning()) 
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
-
-        aircraft.IncIterCount();
 
         auto keys = listener->GetKeyHistoryCopy();
 
