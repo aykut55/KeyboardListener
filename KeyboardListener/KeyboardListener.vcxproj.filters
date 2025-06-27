@@ -5,6 +5,9 @@
     <ClCompile Include="src\KeyboardListener.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Aircraft.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CompositeLogger.h">
@@ -29,6 +32,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\KeyHistory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aircraft.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

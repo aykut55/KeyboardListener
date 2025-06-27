@@ -132,9 +132,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Aircraft.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Aircraft.h" />
     <ClInclude Include="src\CompositeLogger.h" />
     <ClInclude Include="src\ConsoleLogger.h" />
     <ClInclude Include="src\FileLogger.h" />
