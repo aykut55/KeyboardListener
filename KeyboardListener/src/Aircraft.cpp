@@ -124,12 +124,12 @@ void CAircraft::PrintStatus(void)
         << std::endl;
 }
 
-int CAircraft::GeIterCount(void)
+int CAircraft::GetIterCount(void)
 {
     return iterCount;
 }
 
-void CAircraft::SeIterCount(int value)
+void CAircraft::SetIterCount(int value)
 {
     iterCount = value;
 }
@@ -141,7 +141,7 @@ void CAircraft::incIterCount(void)
 
 void CAircraft::PrintFlighData(void)
 {
-    int iterCount = GeIterCount();
+    int iterCount = GetIterCount();
 
     // Ucagin guncel degerlerini al
     double rollDeg = GetRoll();

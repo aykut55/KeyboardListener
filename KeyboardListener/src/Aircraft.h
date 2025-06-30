@@ -88,8 +88,8 @@ public:
     virtual void    SetSpeed(double speedMPS);
     virtual double  GetSpeed(void);
 
-    virtual void    SeIterCount(int value);
-    virtual int     GeIterCount(void);
+    virtual void    SetIterCount(int value);
+    virtual int     GetIterCount(void);
 
     virtual void    NeutralizeAll(void);
 
