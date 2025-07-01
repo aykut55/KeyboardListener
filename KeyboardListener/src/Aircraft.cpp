@@ -264,20 +264,20 @@ void CAircraft::PrintFlighData(void)
     int iterCount = GetIterCount();
 
     // Ucagin guncel degerlerini al
-    double rollDeg = GetRoll();
-    double pitchDeg = GetPitch();
-    double yawDeg = GetYaw();
-    double throttle = GetThrottle();
-    double headingDeg = GetHeading();
-    double latDeg = GetLatitude();
-    double lonDeg = GetLongitude();
-    double altMeter = GetAltitude();
-    double speedMPS = GetSpeed();
+    double rollDeg     = GetRoll();
+    double pitchDeg    = GetPitch();
+    double yawDeg      = GetYaw();
+    double throttle    = GetThrottle();
+    double headingDeg  = GetHeading();
+    double latDeg      = GetLatitude();
+    double lonDeg      = GetLongitude();
+    double altMeter    = GetAltitude();
+    double speedMPS    = GetSpeed();
 
     // Klavyeden girilen degerleri get methodlarýyla al
-    double rollCmd = GetRollCmd();
-    double pitchCmd = GetPitchCmd();
-    double yawCmd = GetYawCmd();
+    double rollCmd     = GetRollCmd();
+    double pitchCmd    = GetPitchCmd();
+    double yawCmd      = GetYawCmd();
     double throttleCmd = GetThrottleCmd();
 
     std::stringstream ss;
