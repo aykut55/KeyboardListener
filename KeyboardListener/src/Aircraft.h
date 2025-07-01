@@ -143,9 +143,9 @@ public:
 
     virtual void    PrintFlighData(void);
 
-    virtual void    PrintStatus();
+    virtual void    PrintStatus(void);
 
-    virtual void    Update();
+    virtual void    Update(void);
 
 protected:
 
@@ -198,7 +198,7 @@ private:
     bool isThrottlingUp;
     bool isThrottlingDown;
 
-    void incIterCount();
+    void incIterCount(void);
 
     std::chrono::time_point<std::chrono::steady_clock> lastPrintTime;
     std::chrono::time_point<std::chrono::steady_clock> currentTime;
