@@ -19,22 +19,90 @@ CAircraft::CAircraft() :
     pitchCmd(0.0),
     yawCmd(0.0),
     throttleCmd(0.0),
+    rollCmdIncrement(0.01),
+    pitchCmdIncrement(0.01),
+    yawCmdIncrement(0.01),
+    throttleCmdIncrement(0.01),
+    rollCmdUpperLimit(1.0),
+    rollCmdLowerLimit(-1.0),
+    pitchCmdUpperLimit(1.0),
+    pitchCmdLowerLimit(-1.0),
+    yawCmdUpperLimit(1.0),
+    yawCmdLowerLimit(-1.0),
+    throttleCmdUpperLimit(1.0),
+    throttleCmdLowerLimit(0.0),
+    rollCmdResetValue(0.0),
+    pitchCmdResetValue(0.0),
+    yawCmdResetValue(0.0),
+    throttleCmdResetValue(0.5),
     iterCount(0),
-    isRollingLeft(false), isRollingRight(false), isPitchingUp(false), isPitchingDown(false), 
+    isRollingLeft(false), isRollingRight(false), isPitchingUp(false), isPitchingDown(false),
     isYawingLeft(false), isYawingRight(false), isThrottlingUp(false), isThrottlingDown(false)
 {
-    currentTime = std::chrono::steady_clock::now();
-    lastPrintTime = std::chrono::steady_clock::now();
+
 }
 
-void CAircraft::RollLeft(void)              { rollCmd--;                                            }
-void CAircraft::RollRight(void)             { rollCmd++;                                            }
-void CAircraft::PitchUp(void)               { pitchCmd++;                                           }
-void CAircraft::PitchDown(void)             { pitchCmd--;                                           }
-void CAircraft::YawLeft(void)               { yawCmd--;                                             }
-void CAircraft::YawRight(void)              { yawCmd++;                                             }
-void CAircraft::ThrottleUp(void)            { throttleCmd++;                                        }
-void CAircraft::ThrottleDown(void)          { throttleCmd--;                                        }
+#if 1
+inline void CAircraft::RollLeft(void)
+{
+    rollCmd -= rollCmdIncrement;
+    if (rollCmd < rollCmdLowerLimit)
+        rollCmd = rollCmdLowerLimit;
+}
+inline void CAircraft::RollRight(void)
+{
+    rollCmd += rollCmdIncrement;
+    if (rollCmd > rollCmdUpperLimit)
+        rollCmd = rollCmdUpperLimit;
+}
+inline void CAircraft::PitchUp(void)
+{
+    pitchCmd -= pitchCmdIncrement;
+    if (pitchCmd < pitchCmdLowerLimit)
+        pitchCmd = pitchCmdLowerLimit;
+}
+inline void CAircraft::PitchDown(void)
+{
+    pitchCmd += pitchCmdIncrement;
+    if (pitchCmd > pitchCmdUpperLimit)
+        pitchCmd = pitchCmdUpperLimit;
+}
+inline void CAircraft::YawLeft(void)
+{
+    yawCmd -= yawCmdIncrement;
+    if (yawCmd < yawCmdLowerLimit)
+        yawCmd = yawCmdLowerLimit;
+}
+inline void CAircraft::YawRight(void)
+{
+    yawCmd;
+    yawCmd += yawCmdIncrement;
+    if (yawCmd > yawCmdUpperLimit)
+        yawCmd = yawCmdUpperLimit;
+}
+inline void CAircraft::ThrottleUp(void)
+{
+    throttleCmd;
+    throttleCmd += throttleCmdIncrement;
+    if (throttleCmd > throttleCmdUpperLimit)
+        throttleCmd = throttleCmdUpperLimit;
+}
+inline void CAircraft::ThrottleDown(void) 
+{
+    throttleCmd -= throttleCmdIncrement;
+    if (throttleCmd < throttleCmdLowerLimit)
+        throttleCmd = throttleCmdLowerLimit;
+}
+#else
+void CAircraft::RollLeft(void)                                              { rollCmd--;                                            }
+void CAircraft::RollRight(void)                                             { rollCmd++;                                            }
+void CAircraft::PitchUp(void)                                               { pitchCmd--;                                           }
+void CAircraft::PitchDown(void)                                             { pitchCmd++;                                           }
+void CAircraft::YawLeft(void)                                               { yawCmd--;                                             }
+void CAircraft::YawRight(void)                                              { yawCmd++;                                             }
+void CAircraft::ThrottleUp(void)                                            { throttleCmd++;                                        }
+void CAircraft::ThrottleDown(void)                                          { throttleCmd--;                                        }
+#endif
 
 void CAircraft::StartRollLeft(void)         { isRollingLeft = true;    isRollingRight = false;      }
 void CAircraft::StartRollRight(void)        { isRollingRight = true;   isRollingLeft = false;       }
@@ -64,6 +132,54 @@ double  CAircraft::GetYawCmd(void)                  { return yawCmd;            
 
 void    CAircraft::SetThrottleCmd(double value)     { this->throttleCmd = value;                    }
 double  CAircraft::GetThrottleCmd(void)             { return throttleCmd;                           }
+// RollCmd PitchCmd YawCmd ThrottleCmd (limits)
+void    CAircraft::SetRollCmdIncrement(double rollCmdIncrement)             { this->rollCmdIncrement = rollCmdIncrement;            }
+double  CAircraft::GetRollCmdIncrement(void)                                { return rollCmdIncrement;                              }
+
+void    CAircraft::SetPitchCmdIncrement(double pitchCmdIncrement)           { this->pitchCmdIncrement = pitchCmdIncrement;          }
+double  CAircraft::GetPitchCmdIncrement(void)                               { return pitchCmdIncrement;                             }
+
+void    CAircraft::SetYawCmdIncrement(double yawCmdIncrement)               { this->yawCmdIncrement = yawCmdIncrement;              }
+double  CAircraft::GetYawCmdIncrement(void)                                 { return yawCmdIncrement;                               }
+
+void    CAircraft::SetThrottleCmdIncrement(double throttleCmdIncrement)     { this->throttleCmdIncrement = throttleCmdIncrement;    }
+double  CAircraft::GetThrottleCmdIncrement(void)                            { return throttleCmdIncrement;                          }
+
+void    CAircraft::SetRollCmdUpperLimit(double rollCmdUpperLimit)           { this->rollCmdUpperLimit = rollCmdUpperLimit;          }
+double  CAircraft::GetRollCmdUpperLimit(void)                               { return rollCmdUpperLimit;                             }
+
+void    CAircraft::SetRollCmdLowerLimit(double rollCmdLowerLimit)           { this->rollCmdLowerLimit = rollCmdLowerLimit;          }
+double  CAircraft::GetRollCmdLowerLimit(void)                               { return rollCmdLowerLimit;                             }
+
+void    CAircraft::SetPitchCmdUpperLimit(double pitchCmdUpperLimit)         { this->pitchCmdUpperLimit = pitchCmdUpperLimit;        }
+double  CAircraft::GetPitchCmdUpperLimit(void)                              { return pitchCmdUpperLimit;                            }
+
+void    CAircraft::SetPitchCmdLowerLimit(double pitchCmdLowerLimit)         { this->pitchCmdLowerLimit = pitchCmdLowerLimit;        }
+double  CAircraft::GetPitchCmdLowerLimit(void)                              { return pitchCmdLowerLimit;                            }
+
+void    CAircraft::SetYawCmdUpperLimit(double yawCmdUpperLimit)             { this->yawCmdUpperLimit = yawCmdUpperLimit;            }
+double  CAircraft::GetYawCmdUpperLimit(void)                                { return yawCmdUpperLimit;                              }
+
+void    CAircraft::SetYawCmdLowerLimit(double yawCmdLowerLimit)             { this->yawCmdLowerLimit = yawCmdLowerLimit;            }
+double  CAircraft::GetYawCmdLowerLimit(void)                                { return yawCmdLowerLimit;                              }
+
+void    CAircraft::SetThrottleCmdUpperLimit(double throttleCmdUpperLimit)   { this->throttleCmdUpperLimit = throttleCmdUpperLimit;  }
+double  CAircraft::GetThrottleCmdUpperLimit(void)                           { return throttleCmdUpperLimit;                         }
+    
+void    CAircraft::SetThrottleCmdLowerLimit(double throttleCmdLowerLimit)   { this->throttleCmdLowerLimit = throttleCmdLowerLimit;  }
+double  CAircraft::GetThrottleCmdLowerLimit(void)                           { return throttleCmdLowerLimit;                         }
+
+void    CAircraft::SetRollCmdResetValue(double rollCmdResetValue)           { this->rollCmdResetValue = rollCmdResetValue;          }
+double  CAircraft::GetRollCmdResetValue(void)                               { return rollCmdResetValue;                             }
+
+void    CAircraft::SetPitchCmdResetValue(double pitchCmdResetValue)         { this->pitchCmdResetValue = pitchCmdResetValue;        }
+double  CAircraft::GetPitchCmdResetValue(void)                              { return pitchCmdResetValue;                            }
+
+void    CAircraft::SetYawCmdResetValue(double yawCmdResetValue)             { this->yawCmdResetValue = yawCmdResetValue;            }
+double  CAircraft::GetYawCmdResetValue(void)                                { return yawCmdResetValue;                              }
+
+void    CAircraft::SetThrottleCmdResetValue(double throttleCmdResetValue)   { this->throttleCmdResetValue = throttleCmdResetValue;  }
+double  CAircraft::GetThrottleCmdResetValue(void)                           { return throttleCmdResetValue;                         }
 
 // Roll Pitch Yaw Throttle
 void    CAircraft::SetRoll(double rollDeg)          { this->rollDeg = rollDeg;                      }
@@ -98,22 +214,25 @@ void CAircraft::Update(void)
 {
     incIterCount();
 
-    if (isRollingLeft)     rollCmd--;
-    if (isRollingRight)    rollCmd++;
-    if (isPitchingUp)      pitchCmd++;
-    if (isPitchingDown)    pitchCmd--;
-    if (isYawingLeft)      yawCmd--;
-    if (isYawingRight)     yawCmd++;
-    if (isThrottlingUp)    throttleCmd++;
-    if (isThrottlingDown)  throttleCmd--;
+    if (isRollingLeft)     RollLeft();
+    if (isRollingRight)    RollRight();
+    if (isPitchingUp)      PitchUp();
+    if (isPitchingDown)    PitchDown();
+    if (isYawingLeft)      YawLeft();
+    if (isYawingRight)     YawRight();
+    if (isThrottlingUp)    ThrottleUp();
+    if (isThrottlingDown)  ThrottleDown();
 }
 
 void CAircraft::NeutralizeAll(void)
 {
-    rollCmd = pitchCmd = yawCmd = throttleCmd = 0;
+    rollCmd     = rollCmdResetValue;
+    pitchCmd    = pitchCmdResetValue;
+    yawCmd      = yawCmdResetValue;
+    throttleCmd = throttleCmdResetValue;
 }
 
-void CAircraft::PrintStatus(void) 
+void CAircraft::PrintStatus(void)
 {
     std::cout << "iterCount: " << std::setw(4) << iterCount
         << "  [Aircraft Status] "

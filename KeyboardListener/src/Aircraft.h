@@ -58,8 +58,56 @@ public:
     virtual void    SetYawCmd(double yawCmd);
     virtual double  GetYawCmd(void);
 
-    virtual void    SetThrottleCmd(double value);
+    virtual void    SetThrottleCmd(double throttleCmd);
     virtual double  GetThrottleCmd(void);
+
+    virtual void    SetRollCmdIncrement(double rollCmdIncrement);
+    virtual double  GetRollCmdIncrement(void);
+
+    virtual void    SetPitchCmdIncrement(double pitchCmdIncrement);
+    virtual double  GetPitchCmdIncrement(void);
+
+    virtual void    SetYawCmdIncrement(double yawCmdIncrement);
+    virtual double  GetYawCmdIncrement(void);
+
+    virtual void    SetThrottleCmdIncrement(double throttleCmdIncrement);
+    virtual double  GetThrottleCmdIncrement(void);
+
+    virtual void    SetRollCmdUpperLimit(double rollCmdUpperLimit);
+    virtual double  GetRollCmdUpperLimit(void);
+
+    virtual void    SetRollCmdLowerLimit(double rollCmdLowerLimit);
+    virtual double  GetRollCmdLowerLimit(void);
+
+    virtual void    SetPitchCmdUpperLimit(double pitchCmdUpperLimit);
+    virtual double  GetPitchCmdUpperLimit(void);
+
+    virtual void    SetPitchCmdLowerLimit(double pitchCmdLowerLimit);
+    virtual double  GetPitchCmdLowerLimit(void);
+
+    virtual void    SetYawCmdUpperLimit(double yawCmdUpperLimit);
+    virtual double  GetYawCmdUpperLimit(void);
+
+    virtual void    SetYawCmdLowerLimit(double yawCmdLowerLimit);
+    virtual double  GetYawCmdLowerLimit(void);
+
+    virtual void    SetThrottleCmdUpperLimit(double throttleCmdUpperLimit);
+    virtual double  GetThrottleCmdUpperLimit(void);
+
+    virtual void    SetThrottleCmdLowerLimit(double throttleCmdLowerLimit);
+    virtual double  GetThrottleCmdLowerLimit(void);
+
+    virtual void    SetRollCmdResetValue(double rollCmdResetValue);
+    virtual double  GetRollCmdResetValue(void);
+
+    virtual void    SetPitchCmdResetValue(double pitchCmdResetValue);
+    virtual double  GetPitchCmdResetValue(void);
+
+    virtual void    SetYawCmdResetValue(double yawCmdResetValue);
+    virtual double  GetYawCmdResetValue(void);
+
+    virtual void    SetThrottleCmdResetValue(double throttleCmdResetValue);
+    virtual double  GetThrottleCmdResetValue(void);
 
     virtual void    SetRoll(double rollDeg);
     virtual double  GetRoll(void);
@@ -116,6 +164,25 @@ private:
     double pitchCmd;
     double yawCmd;
     double throttleCmd;
+
+    double rollCmdIncrement;
+    double pitchCmdIncrement;
+    double yawCmdIncrement;
+    double throttleCmdIncrement;
+
+    double rollCmdUpperLimit;
+    double rollCmdLowerLimit;
+    double pitchCmdUpperLimit;
+    double pitchCmdLowerLimit;
+    double yawCmdUpperLimit;
+    double yawCmdLowerLimit;
+    double throttleCmdUpperLimit;
+    double throttleCmdLowerLimit;
+
+    double rollCmdResetValue;
+    double pitchCmdResetValue;
+    double yawCmdResetValue;
+    double throttleCmdResetValue;
 
     int iterCount;
 
