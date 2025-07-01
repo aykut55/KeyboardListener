@@ -21,33 +21,33 @@ public:
     virtual ~CAircraft();
              CAircraft();
 
-    virtual void    RollLeft();
-    virtual void    RollRight();  
+    virtual void    RollLeft(void);
+    virtual void    RollRight(void);
 
-    virtual void    PitchUp();
-    virtual void    PitchDown();   
+    virtual void    PitchUp(void);
+    virtual void    PitchDown(void);
 
-    virtual void    YawLeft();
-    virtual void    YawRight();  
+    virtual void    YawLeft(void);
+    virtual void    YawRight(void);
 
-    virtual void    ThrottleUp();
-    virtual void    ThrottleDown();
+    virtual void    ThrottleUp(void);
+    virtual void    ThrottleDown(void);
 
-    virtual void    StartRollLeft();
-    virtual void    StartRollRight();
-    virtual void    StopRolling();
+    virtual void    StartRollLeft(void);
+    virtual void    StartRollRight(void);
+    virtual void    StopRolling(void);
             
-    virtual void    StartPitchUp();
-    virtual void    StartPitchDown();
-    virtual void    StopPitching();
+    virtual void    StartPitchUp(void);
+    virtual void    StartPitchDown(void);
+    virtual void    StopPitching(void);
             
-    virtual void    StartYawLeft();
-    virtual void    StartYawRight();
-    virtual void    StopYawing();
+    virtual void    StartYawLeft(void);
+    virtual void    StartYawRight(void);
+    virtual void    StopYawing(void);
             
-    virtual void    StartThrottleUp();
-    virtual void    StartThrottleDown();
-    virtual void    StopThrottle();
+    virtual void    StartThrottleUp(void);
+    virtual void    StartThrottleDown(void);
+    virtual void    StopThrottle(void);
 
     virtual void    SetRollCmd(double rollCmd);
     virtual double  GetRollCmd(void);
