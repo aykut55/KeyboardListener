@@ -235,13 +235,13 @@ void CAircraft::NeutralizeAll(void)
 
 void CAircraft::PrintStatus(void)
 {
-    std::cout << "iterCount: " << std::setw(4) << iterCount
-        << "  [Aircraft Status] "
-        << "  Roll: " << std::setw(4) << rollCmd
-        << ", Pitch: " << std::setw(4) << pitchCmd
-        << ", Yaw: " << std::setw(4) << yawCmd
-        << ", Throttle: " << std::setw(4) << throttleCmd
-        << std::endl;
+    std::cout << "iterCount: " << std::setw(4) << iterCount;
+    std::cout << "  [Aircraft Status] ";
+    std::cout << "  Roll: " << std::setw(4) << std::fixed << std::setprecision(4) << rollCmd;
+    std::cout << "  Pitch: " << std::setw(4) << std::fixed << std::setprecision(4) << pitchCmd;
+    std::cout << "  Yaw: " << std::setw(4) << std::fixed << std::setprecision(4) << yawCmd;
+    std::cout << "  Throttle: " << std::setw(4) << std::fixed << std::setprecision(4) << throttleCmd;
+    std::cout << std::endl;
 }
 
 int CAircraft::GetIterCount(void)
